@@ -19,7 +19,7 @@ jobs:
       with:
         test-name: t1
         setup-command: ''
-        command: cd ClienteAPI && docker build -t "APICliente" .
+        command: cd ClienteAPI && docker build -t "apicliente" .
         timeout: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
