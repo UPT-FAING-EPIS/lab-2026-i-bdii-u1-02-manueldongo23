@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  bd:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: bd_clientes
+    ports:
+      - "1435:1433" 
+    environment:
+      - ACCEPT_EULA=y
+      - SA_PASSWORD=Upt.2022
+    volumes:
+      - ./db:/tmp
+  api:
+    build: ClienteAPI/.
+    container_name: api_clientes
+    ports:
+      - "5000:8080"
+    environment:
+      - ConnectionStrings__ClienteDB=Server=bd_clientes;Database=BD_CLIENTES;User Id=sa;Password=Upt.2022;TrustServerCertificate=true
+    depends_on:
+      - bd
