@@ -14,7 +14,7 @@ services:
     build: ClienteAPI/.
     container_name: api_clientes
     ports:
-      - "5000:8080"
+      - "5000:80"
     environment:
       - ConnectionStrings__ClienteDB=Server=bd_clientes;Database=BD_CLIENTES;User Id=sa;Password=Upt.2022;TrustServerCertificate=true
     depends_on:
